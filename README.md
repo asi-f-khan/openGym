@@ -1,30 +1,5 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="openGym" width="720">
-
-<br>
-
-**A self-hosted gym & body-weight tracker you actually own.**
-
-Plan your week, run guided workouts, track every set and your body weight over time —
-on your phone, synced across devices, behind your own passkey login.
-No account on someone else's server, no subscription, no ads. Just `docker compose up`.
-
-<br>
-
-[![License: AGPL v3](https://img.shields.io/badge/license-AGPL--3.0-a3e635?style=flat-square)](LICENSE)
-![Self-hosted](https://img.shields.io/badge/self--hosted-%F0%9F%8F%A0-60a5fa?style=flat-square)
-![PWA](https://img.shields.io/badge/PWA-installable-a78bfa?style=flat-square)
-![React](https://img.shields.io/badge/React-19-38bdf8?style=flat-square&logo=react&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-compose-2496ED?style=flat-square&logo=docker&logoColor=white)
-![No tracking](https://img.shields.io/badge/telemetry-none-f472b6?style=flat-square)
-<br>
-![GitHub last commit](https://img.shields.io/github/last-commit/DuarteSantos8/openGym?style=flat-square)
-[![GitHub stars](https://img.shields.io/github/stars/DuarteSantos8/openGym?style=flat-square)](https://github.com/DuarteSantos8/openGym/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/DuarteSantos8/openGym?style=flat-square)](https://github.com/DuarteSantos8/openGym/issues)
-
-</div>
-
 <br>
 
 <div align="center">
@@ -38,14 +13,6 @@ No account on someone else's server, no subscription, no ads. Just `docker compo
 </div>
 
 <div align="center">
-
-### [🌐 opengym.duarte-santos.ch](https://opengym.duarte-santos.ch) · [▶ Try the live demo](https://duartesantos8.github.io/openGym/)
-
-No signup, nothing to install — it runs entirely in your browser on example data.<br>
-<sub>There's no server behind the demo, so passkey sign-in, sync across devices and the
-admin dashboard only exist in a self-hosted instance.</sub>
-
-</div>
 
 ## Why
 
@@ -146,14 +113,14 @@ server — they stay in your phone's secure hardware / your password manager.
 
 All via `.env` (see `.env.example`):
 
-| Variable      | What it is                                           | Default                 |
-|---------------|------------------------------------------------------|-------------------------|
-| `RP_ID`       | Hostname passkeys are bound to                       | `localhost`             |
-| `ORIGIN`      | Full URL the app is served from                      | `http://localhost:8080` |
-| `WEB_PORT`    | Host port for the web UI                             | `8080`                  |
-| `RP_NAME`     | Name shown in the passkey prompt                     | `openGym`               |
-| `ADMIN_UIDS`  | User ids that get the admin dashboard (comma-separated) | *(none)*             |
-| `INVITE_ONLY` | Require an invite code to create a profile           | *(off)*                 |
+| Variable        | What it is                                              | Default                   |
+| --------------- | ------------------------------------------------------- | ------------------------- |
+| `RP_ID`       | Hostname passkeys are bound to                          | `localhost`             |
+| `ORIGIN`      | Full URL the app is served from                         | `http://localhost:8080` |
+| `WEB_PORT`    | Host port for the web UI                                | `8080`                  |
+| `RP_NAME`     | Name shown in the passkey prompt                        | `openGym`               |
+| `ADMIN_UIDS`  | User ids that get the admin dashboard (comma-separated) | *(none)*                |
+| `INVITE_ONLY` | Require an invite code to create a profile              | *(off)*                 |
 
 Push notification keys are generated on first run and saved to `./data/vapid.json` — nothing to set.
 
@@ -161,13 +128,13 @@ Push notification keys are generated on first run and saved to `./data/vapid.jso
 
 Rough, community-driven — ideas and PRs welcome:
 
-- [x] Standalone mobile app — Android APK to sideload ([download](https://opengym.duarte-santos.ch)); on iOS as a self-hosted PWA (no store listings planned)
-- [x] Automatic progression programs (linear, Greyskull LP, double progression) with stalls and deloads
-- [x] Estimated 1RM per exercise
+- [X] Standalone mobile app — Android APK to sideload ([download](https://opengym.duarte-santos.ch)); on iOS as a self-hosted PWA (no store listings planned)
+- [X] Automatic progression programs (linear, Greyskull LP, double progression) with stalls and deloads
+- [X] Estimated 1RM per exercise
 - [ ] Percentage / training-max programming (5/3/1-style) on top of the progression engine
 - [ ] More starter plans (upper/lower, full-body, 5×5)
-- [x] Importers from FitNotes / Strong / Hevy (including the RPE they record), and body weight from Apple Health
-- [x] Effort per set — RIR or RPE, whichever scale you think in
+- [X] Importers from FitNotes / Strong / Hevy (including the RPE they record), and body weight from Apple Health
+- [X] Effort per set — RIR or RPE, whichever scale you think in
 - [ ] Body measurements (waist, arms…) alongside weight
 - [ ] Per-exercise notes & plate calculator
 - [ ] Exercise instructions in German & Portuguese (UI is translated; upstream dataset doesn't ship these yet)
@@ -186,7 +153,7 @@ React, the router and Zustand.
 
 ## Community
 
-- **[Q&A](https://github.com/DuarteSantos8/openGym/discussions/categories/q-a)** — self-hosting
+- **[Q&amp;A](https://github.com/DuarteSantos8/openGym/discussions/categories/q-a)** — self-hosting
   help, passkey/login trouble, "how do I…". Most login problems turn out to be an `RP_ID`/`ORIGIN`
   mismatch.
 - **[Ideas](https://github.com/DuarteSantos8/openGym/discussions/categories/ideas)** — features
