@@ -15,6 +15,6 @@ COPY frontend/ ./
 RUN npm run build
 
 FROM nginx:alpine
-COPY web/nginx.conf /tmp/nginx.conf.template
+COPY web/nginx.conf /etc/nginx/nginx.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html
-CMD ["/bin/sh", "-c", "envsubst '${API_URL}' < /tmp/nginx.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
+CMD ["/bin/sh", "-c", "envsubst '${API_URL}' < /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
