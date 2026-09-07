@@ -1,6 +1,25 @@
 services:
+  # Backend API — private (no public URL, reachable as http://api:3000 from web)
+  - type: pserv
+    name: api
+    env: docker
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: ./api
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DATA_DIR
+        value: /data
+      - key: RP_ID
+        sync: false
+      - key: RP_ORIGIN
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+
+  # Frontend + nginx proxy — public web service
   - type: web
     name: opengym
     env: docker
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./web/Dockerfile
     dockerContext: .
