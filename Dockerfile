@@ -14,7 +14,12 @@ RUN npm ci 2>/dev/null || npm install
 COPY frontend/ ./
 RUN npm run build
 
+FROM alpine/git AS media
+RUN git clone --depth 1 https://github.com/hasaneyldrm/exercises-dataset /tmp/ds
+
 FROM nginx:alpine
 COPY web/nginx.conf /etc/nginx/nginx.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=media /tmp/ds/images/ /usr/share/nginx/html/img/
+COPY --from=media /tmp/ds/videos/ /usr/share/nginx/html/gif/
 CMD ["/bin/sh", "-c", "envsubst '${API_URL}' < /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
