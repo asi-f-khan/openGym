@@ -15,6 +15,6 @@ COPY frontend/ ./
 RUN npm run build
 
 FROM nginx:alpine
-COPY web/nginx.conf /etc/nginx/templates/default.conf.template
+COPY web/nginx.conf /tmp/nginx.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html
-# exercise media (img/gif) is mounted at runtime from the media volume
+CMD ["/bin/sh", "-c", "envsubst '${API_URL}' < /tmp/nginx.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
